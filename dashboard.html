@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primary Dashboard | Attendance Management Portal</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #440000; 
+      font-family: "Times New Roman", Times, serif;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .logo {
+      width: 120px;
+      position: absolute;
+      top: 25px;
+      right: 40px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+      width: 80%;
+      margin: 0 auto 40px auto;
+      color: #f5f5f5;
+    }
+
+    h4 {
+      margin-top: 40px;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    /* Dropdown styling */
+    select {
+      padding: 12px 16px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      color: #440000;
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    select:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Role Links Section */
+    #role-links {
+      margin-top: 10px;
+    }
+
+    #role-links a {
+      display: inline-block;
+      background-color: white;
+      color: #440000;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 6px;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #role-links a:hover {
+      background-color: #990000;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #440000;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .logo {
+        width: 90px;
+        top: 10px;
+        right: 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 15px;
+        width: 90%;
+      }
+
+      select {
+        width: 80%;
+        padding: 10px;
+      }
+
+      #role-links a {
+        width: 70%;
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ashesi Logo -->
+  <img src="ashesilogo.png"
+       alt="Ashesi University Logo"
+       class="logo">
+
+  <h2>Welcome to the Attendance Management Portal</h2>
+  <p>
+    Please select your role below to access your dashboard. 
+    Each dashboard provides tools specific to your role for tracking, managing, 
+    and viewing attendance reports.
+  </p>
+
+  
+  <select id="role" name="role" required>
+    <option value="">Choose your role</option>
+    <option value="student">Student</option>
+    <option value="faculty">Faculty</option>
+    <option value="faculty-intern">Faculty Intern</option>
+  </select>
+
+  <div id="role-links">
+    <h4>Proceed to your dashboard:</h4>
+    <a href="studentdashboard.html">Student Dashboard</a>
+    <a href="facultydashboard.html">Faculty Dashboard</a>
+    <a href="interndashboard.html">Faculty Intern Dashboard</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ashesi University | Attendance Management System</p>
+  </footer>
+</body>
+</html>
