@@ -103,6 +103,12 @@
       margin-top: 20px;
       font-size: 14px;
     }
+    .error {
+      color: white;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
 
     /* Footer */
     footer {
@@ -139,21 +145,67 @@
   <img src="ashesilogo.png" alt="Ashesi University Logo" class="logo">
 
   <!-- Login Form -->
-  <form>
+  <form id="loginForm">
     <h2> Login</h2>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
+    <div id="usernameError" class="error"></div>
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
-
-    <a href="dashboard.html">
-      <input type="button" id="login-btn2" value="LOG IN">
-    </a>
+    <div id="passwordError" class="error"></div>
+    <input type="submit" id="login-btn2" value="LOG IN">
 
     <a href="forgotpassword.html">Forgot Password?</a>
     <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
   </form>
+
+  <!-- Validation -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Clear previous errors
+      document.querySelectorAll(".error").forEach(el => el.textContent = "");
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      let valid = true;
+
+      // Username validation
+      const usernameRegex = /^[A-Za-z\s]+$/;
+      if (!usernameRegex.test(username)) {
+        document.getElementById("usernameError").textContent = "Username should only contain letters (no symbols or numbers).";
+        valid = false;
+      }
+
+      // Password validation
+      if (password.length < 8) {
+        document.getElementById("passwordError").textContent = "Password must be at least 8 characters long.";
+        valid = false;
+      }
+
+      // SweetAlert
+      if (valid) {
+        Swal.fire({
+          icon: "success",
+          title: "Login successful!",
+          text: "Welcome back 🎉",
+          confirmButtonColor: "#440000"
+        }).then(() => {
+          window.location.href = "dashboard.html";
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Invalid credentials!",
+          text: "Please correct the highlighted errors.",
+          confirmButtonColor: "#990000"
+        });
+      }
+    });
+  </script>
 
   <!-- Footer -->
   <footer>
